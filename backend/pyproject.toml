@@ -19,6 +19,12 @@ dependencies = [
 
   #tool for ci check
   "ruff>=0.5",
+
+  #alembic for db migrations
+  "alembic>=1.18.4",
+
+
+  "psycopg2-binary==2.9.11"
 ]
 
 [tool.uv]
