@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import String
+from sqlalchemy import String, DateTime, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 from typing import List
@@ -23,8 +23,12 @@ class Team(Base):
         default=uuid.uuid4,
     )
 
-    user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("user_account.id"))
+    owner_user_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id"))
     
-    name: Mapped[str] = mapped_column(String, nullable=False)
+    name: Mapped[str] = mapped_column(String(200), nullable=False)
     
-    created_at: datetime = mapped_column(default=datetime.now(timezone.utc.now))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        nullable=False,
+        server_default=func.now(),
+    )
