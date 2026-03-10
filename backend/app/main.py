@@ -7,4 +7,6 @@ app = FastAPI(title="Monster Team Builder API")
 async def health():
     return {"ok": True}
 
-
+@app.get("/api/healthz")
+async def healthz():
+    return {"healthyz": True}
