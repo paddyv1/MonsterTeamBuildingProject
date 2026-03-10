@@ -20,8 +20,7 @@ jobs:
 
       - name: Annotate
         run: |
-          echo "::notice::Starting backend checks"
-          echo "::warning::This is a warning example"
+          echo "::notice::Starting backend installs"
 
       - name: Install uv
         run: |
