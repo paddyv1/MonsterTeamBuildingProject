@@ -22,6 +22,11 @@ services:
       DATABASE_URL: postgresql+asyncpg://app:app@db:5432/app
       DATABASE_URL_SYNC: postgresql://app:app@db:5432/app
       REDIS_URL: redis://redis:6379/0
+      # github oauth credentials
+      GITHUB_CLIENT_ID: your_github_client_id
+      GITHUB_CLIENT_SECRET: your_github_client_secret
+      SESSION_SECRET: your_random_secret_key
+      FRONTEND_URL: http://localhost:5173
       # For development convenience:
       UVICORN_RELOAD: "true"
     ports:

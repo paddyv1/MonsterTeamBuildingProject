@@ -53,3 +53,4 @@ docs/_build/
 docs_docker-cheatsheet_Version7.md
 _docs
 docs
+.env
