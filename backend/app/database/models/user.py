@@ -17,3 +17,5 @@ class User(Base):
     )
 
     github_id: Mapped[str] = mapped_column(String, unique=True, index=True)
+    
+    username: Mapped[str] = mapped_column(String(200), nullable=False)

@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime, timezone
+from app.database.models.slot import Slot
 from sqlalchemy import String, DateTime, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
@@ -31,4 +32,13 @@ class Team(Base):
         DateTime(timezone=True),
         nullable=False,
         server_default=func.now(),
+    )
+    
+    
+    # This is what Slot.team(back_populates="slots") needs:
+    slots: Mapped[list["Slot"]] = relationship(
+        "Slot",
+        back_populates="team",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
     )

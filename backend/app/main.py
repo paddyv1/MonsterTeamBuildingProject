@@ -1,17 +1,9 @@
 from fastapi import FastAPI
 from app.api.health import router as health_router
+from app.api.auth import router as auth_router
 
 app = FastAPI(title="Monster Team Builder API")
 
 
 app.include_router(health_router)
-
-
-@app.get("/api/health")
-async def health():
-    return {"ok": True}
-
-
-@app.get("/api/healthz")
-async def healthz():
-    return {"healthyz": True}
+app.include_router(auth_router)
