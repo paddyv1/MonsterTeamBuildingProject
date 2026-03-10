@@ -16,6 +16,9 @@ dependencies = [
 
   # Redis (cache + pubsub)
   "redis>=5.0",
+
+  #tool for ci check
+  "ruff>=0.5",
 ]
 
 [tool.uv]
